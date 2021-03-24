@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        @include('partials.seo')
+
         <title>CSR - Cyber Security and Resilience (SS21)</title>
 
         <!-- Fonts -->
