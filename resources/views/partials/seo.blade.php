@@ -7,7 +7,7 @@
 <meta name="robots" content="{{ $seo->robots }}">
 
 <meta property="og:locale" content="{{ app()->getLocale() }}">
-<meta property="og:site_name" content="{{ $seo->site) }}">
+<meta property="og:site_name" content="{{ $seo->site }}">
 
 <meta property="og:url" content="{{ request()->url() }}">
 <meta property="og:type" content="website">
