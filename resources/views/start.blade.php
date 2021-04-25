@@ -24,7 +24,6 @@
             </div>
 
 
-
             <h1 class="mt-24 text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
                 Evaluation
             </h1>
@@ -47,13 +46,12 @@
 
 
 
-
-
-            <h1 class="mt-24 text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
-                Guidelines
-            </h1>
-
             @if(!empty($categories) && $categories->count())
+
+                <h1 class="mt-24 text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
+                    Guidelines
+                </h1>
+
                 @foreach($categories as $category)
                     <div class="bg-white pt-8-20 px-4 sm:px-6 lg:pt-6 lg:pb-14 lg:px-8 mt-12 mb-12">
                         <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
