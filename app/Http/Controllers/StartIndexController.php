@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+
 class StartIndexController extends Controller
 {
     public function index()
     {
-        $seo = (object) [
-            'site' => 'Students Project FHNW',
-            'title' => 'Cyber Security and Resilience (CSR SS21)',
-            'image' => asset('images/cysere_seo.jpg'),
-            'robots' => 'index/follow',
-            'description' => 'Cyber Security and Resilience (CSR SS21)',
-         ];
-
-       return view('start', compact('seo'));
+        $categories = Category::orderBy('title')->with('services')->get();
+       return view('start', compact('categories'));
     }
 
 }

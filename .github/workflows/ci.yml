@@ -46,17 +46,23 @@ jobs:
       - name: Install Composer dependencies
         run: composer install -q --no-progress --prefer-dist --no-interaction --no-suggest --optimize-autoloader --no-scripts
 
+
       # Prepare backend
       - name: Create Database
         run: |
           sudo systemctl start mysql
-          mysql --user="root" --password="root" -e "CREATE DATABASE github character set UTF8mb4 collate utf8mb4_bin;"
+          mysql --user="root" --password="root" -e "CREATE DATABASE cypress character set UTF8mb4 collate utf8mb4_bin;"
       - name: Generate app key
         run: php artisan key:generate
       - name: Clear Config
         run: php artisan config:clear
-      - name: Run Migration
-        run: php artisan migrate:fresh --seed
+
+      # Frontend dependencies
+
+      - name: Install dependencies 👨🏻‍💻
+        run: npm install
+      - name: Build assets 👷‍♂️
+        run: npm run prod
 
       # Backend tests
       - name: Execute tests (Unit and Feature tests) via PHPUnit

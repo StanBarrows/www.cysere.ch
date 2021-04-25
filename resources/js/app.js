@@ -1,1 +1,2 @@
-require('./bootstrap');
+// AlpineJs
+import 'alpinejs';
