@@ -15,16 +15,19 @@
 </head>
 <body class="bg-gray-50">
 
-   {{-- @include('layouts.partials._navigation')--}}
+{{-- @include('layouts.partials._navigation')--}}
 
-    @yield('content')
-    @include('layouts.partials._footer')
-
-
+@yield('content')
+@include('layouts.partials._footer')
 
 
 <script src="{{ mix('js/app.js')}}"></script>
 
+@if(app()->isProduction())
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://dragonfly.codebar.ch/script.js" data-site="WLUVVPIV" defer></script>
+    <!-- / Fathom -->
+@endif
 @livewireScripts
 </body>
 </html>
