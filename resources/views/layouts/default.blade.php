@@ -15,7 +15,7 @@
 </head>
 <body class="bg-gray-50">
 
-<!-- This example requires Tailwind CSS v2.0+ -->
+{{--<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-red-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="pr-16 sm:text-center sm:px-16">
@@ -27,8 +27,7 @@
         </div>
 
     </div>
-</div>
-
+</div>--}}
 
 {{-- @include('layouts.partials._navigation')--}}
 

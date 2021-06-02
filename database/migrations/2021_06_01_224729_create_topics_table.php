@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesTable extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
             $table->boolean('published')->default(false);
-            $table->foreignId('category_id');
+            $table->integer('order')->nullable();
+            $table->foreignId('service_id');
             $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('description');
-            $table->string('icon')->nullable();
+            $table->longText('explanation');
             $table->longText('body');
+
+            $table->string('expected_value')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +37,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('topics');
     }
 }

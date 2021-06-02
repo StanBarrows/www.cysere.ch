@@ -17,7 +17,6 @@ class Service extends Model
         'published_at' => 'datetime',
     ];
 
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -28,5 +27,9 @@ class Service extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 
 }
