@@ -1,37 +1,39 @@
 <aside class="hidden md:block py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
     <nav class="space-y-1">
 
-        <span
-            class="mb-2 text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-md font-bold">
-            <span class="">Topics</span>
-        </span>
+        @foreach($grouped as $key => $group)
+            <span class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-md font-bold">
+                 <span class="">{{ \App\Models\Category::find($key)->title }}</span>
+            </span>
 
-        @foreach($services as $service)
+            @foreach($group as $service)
+                <a href="{{ route('assessment.set', $service) }}"
+                   class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium @if($active->uuid === $service->uuid)bg-gray-200 hover:bg-gray-100 @endif">
 
-            <a href="{{ route('assessment.set', $service) }}"
-               class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium @if($active->uuid === $service->uuid)bg-gray-200 hover:bg-gray-100 @endif">
+                    @if(in_array($service->uuid, $completed))
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="text-green-400 group-hover:text-green-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    @else
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="text-red-400 group-hover:text-red-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" fill="none"
+                             viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    @endif
 
-                @if(in_array($service->uuid, $completed))
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="text-green-400 group-hover:text-green-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" fill="none"
-                         viewBox="0 0 24 24"
-                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                @else
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="text-red-400 group-hover:text-red-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" fill="none"
-                         viewBox="0 0 24 24"
-                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                @endif
-
-                <span class="">{{ $service->title }}</span>
-            </a>
+                    <span class="">{{ $service->title }}</span>
+                </a>
+            @endforeach
         @endforeach
+
     </nav>
 
     <nav class="space-y-1 mt-6">

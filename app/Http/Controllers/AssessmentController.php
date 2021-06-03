@@ -23,6 +23,7 @@ class AssessmentController extends Controller
         }
 
         $services = $assessment->getServices();
+        $grouped = $services->groupBy('category_id');
         $active = $assessment->getActiveService();
         $next = $assessment->getNextService();
         $previous = $assessment->getPreviousService();
@@ -30,6 +31,7 @@ class AssessmentController extends Controller
         $completed = $assessment->getCompleted();
 
         return view('assessment.index')->with([
+            'grouped' => $grouped,
             'services' => $services,
             'active' => $active,
             'previous' => $previous,
