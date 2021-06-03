@@ -17,52 +17,46 @@ class ServicesTableSeeder extends Seeder
     {
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 1,
             'title' => 'Hosting & Provider',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 1,
             'title' => 'Maintenance',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
 
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 1,
             'title' => 'Analytics & Tracking',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 1,
             'title' => 'Terms & Conditions',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 2,
             'title' => 'Newsletters',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 2,
             'title' => 'Bulk mailings',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
-            'body' => file_get_contents(database_path('markdown/service.md')),
 
         ]);
 
@@ -71,7 +65,6 @@ class ServicesTableSeeder extends Seeder
             'category_id' => 3,
             'title' => 'Contact Forms',
             'description' => 'A contact form is a form on your company website where a user fills out information about themselves. This can include name, email, address, phone number and more. ',
-            'body' => file_get_contents(database_path('markdown/service.md')),
         ]);
 
     }

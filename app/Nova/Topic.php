@@ -5,22 +5,20 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Trix;
 
-class Category extends Resource
+class Topic extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Category::class;
+    public static $model = \App\Models\Topic::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,7 +33,7 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description',
+        'id', 'title', 'description','body'
     ];
 
 
@@ -59,13 +57,14 @@ class Category extends Resource
                 ->onlyOnDetail()
                 ->readonly(),
 
+            Boolean::make('Published')->sortable()
+                ->rules('required', 'boolean'),
+
             Number::make('Order')
                 ->sortable()
                 ->rules('required', 'numeric',),
 
-            Boolean::make('Published')
-                ->sortable()
-                ->rules('required', 'boolean',),
+            BelongsTo::make('Service', 'service', 'App\Nova\Service'),
 
             Text::make('Title')
                 ->sortable()
@@ -76,7 +75,17 @@ class Category extends Resource
                 ->alwaysShow()
                 ->rules('required', 'string', 'max:255'),
 
-            HasMany::make('Services', 'services', 'App\Nova\Service'),
+
+            Trix::make('Body')
+                ->sortable()
+                ->alwaysShow()
+                ->withFiles(config('filesystems.default'))
+                ->path(\App\Models\Topic::STORAGE)
+                ->rules('required', 'string', 'max:4086'),
+
+            Boolean::make('Value')->hideFromIndex()
+                ->rules('required', 'boolean'),
+
         ];
     }
 

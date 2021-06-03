@@ -17,12 +17,10 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->boolean('published')->default(false);
+            $table->integer('order')->nullable();
             $table->foreignId('category_id');
             $table->string('title');
-            $table->string('slug')->unique();
             $table->text('description');
-            $table->string('icon')->nullable();
-            $table->longText('body');
             $table->timestamps();
             $table->softDeletes();
         });

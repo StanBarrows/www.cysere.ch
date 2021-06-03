@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Topic extends Model
 {
+    const STORAGE = 'topics';
+
     use HasFactory;
     use IsPublishable;
     use SoftDeletes;

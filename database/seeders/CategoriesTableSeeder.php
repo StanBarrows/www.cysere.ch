@@ -16,14 +16,14 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         $category = Category::create([
-            'published' => true,
+            'published' => false,
             'order' => 3,
             'title' => 'Website',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',
         ]);
 
         $category = Category::create([
-            'published' => true,
+            'published' => false,
             'order' => 2,
             'title' => 'E-Mails',
             'description' => 'I love lollipop gummies candy icing. Macaroon chupa chups lollipop marshmallow cake gingerbread I love chocolate bar. Dessert pie wafer cupcake powder.',

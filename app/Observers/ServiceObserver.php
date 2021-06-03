@@ -17,6 +17,5 @@ class ServiceObserver
     public function creating(Service $service)
     {
         $service->uuid = Str::orderedUuid()->toString();
-        $service->slug = Str::slug($service->title);
     }
 }

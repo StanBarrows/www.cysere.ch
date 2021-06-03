@@ -5,38 +5,28 @@
             <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-green-50 py-6 px-4 sm:p-6">
                     <div>
-                        <h2 id="payment_details_heading"
+                        <h2 id=""
                             class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->model->title }}
                         </h2>
 
-                        @if($topic->model->explanation)
+                        @if($topic->model->description)
                             <p class="mt-1 text-sm text-gray-500">
-                                {{ $topic->model->explanation }}
+                                {{ $topic->model->description }}
                             </p>
                         @endif
 
                     </div>
 
-                    <div class="mt-6">
-                        <fieldset>
-                            <legend class="sr-only">
-                                {{ $topic->model->title }}
-                            </legend>
-                            <div class="bg-green-50 rounded-md -space-y-px">
-
-                            </div>
-                        </fieldset>
-                    </div>
                 </div>
             </div>
         </section>
     @else
         <section aria-labelledby="">
             <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
-                <div class="bg-red-50 py-6 px-4 sm:p-6">
+                <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
-                        <h2 id="payment_details_heading"
+                        <h2 id=""
                             class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->model->title }}
                         </h2>
@@ -46,18 +36,12 @@
                                 {{ $topic->model->explanation }}
                             </p>
                         @endif
-
                     </div>
 
                     <div class="mt-6">
-                        <fieldset>
-                            <legend class="sr-only">
-                                {{ $topic->model->title }}
-                            </legend>
-                            <div class="bg-red-50 rounded-md -space-y-px">
-                                {{ $topic->model->body }}
-                            </div>
-                        </fieldset>
+                        <div class="prose prose-base">
+                            {!! $topic->model->body !!}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,7 +75,6 @@
            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
             Finish Survey
         </a>
-
 
     @endif
 

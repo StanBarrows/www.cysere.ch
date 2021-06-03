@@ -79,7 +79,7 @@ class Assessment
                         'uuid' => $model->uuid,
                         'model' => $model,
                         'answer' => $option['value'] ? 'Yes' : 'No',
-                        'extended' => $option['value'] === $model->expected_value
+                        'extended' => $option['value'] === $model->value
                     ];
                 } catch (\Exception $exception) {
                     return [

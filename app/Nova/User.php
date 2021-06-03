@@ -33,6 +33,11 @@ class User extends Resource
         'id', 'name', 'email',
     ];
 
+    public static function softDeletes()
+    {
+        return false;
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

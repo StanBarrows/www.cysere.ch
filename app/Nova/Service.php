@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -37,6 +38,11 @@ class Service extends Resource
         'id', 'title', 'description', 'body',
     ];
 
+    public static function softDeletes()
+    {
+        return false;
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -48,26 +54,28 @@ class Service extends Resource
         return [
             ID::make()->sortable(),
 
+            Text::make('Uuid')
+                ->onlyOnDetail()
+                ->readonly(),
+
             Boolean::make('Published')->sortable()
                 ->rules('required', 'boolean'),
+
+            Number::make('Order')
+                ->sortable()
+                ->rules('required', 'numeric',),
 
             BelongsTo::make('Category', 'category', 'App\Nova\Category'),
 
             Text::make('Title')
                 ->sortable()
-                ->rules('required', 'string', 'max:255'),
-
-            Text::make('Slug')
-                ->sortable()
-                ->readonly(),
+                ->rules('required', 'string', 'max:60'),
 
             Textarea::make('Description')
                 ->sortable()
+                ->alwaysShow()
                 ->rules('required', 'string', 'max:255'),
 
-            Trix::make('Body')
-                ->sortable()
-                ->rules('required', 'string', 'max:255'),
         ];
 
     }
