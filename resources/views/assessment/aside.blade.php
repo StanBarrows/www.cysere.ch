@@ -2,7 +2,8 @@
     <nav class="space-y-1">
 
         @foreach($grouped as $key => $group)
-            <span class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-md font-bold">
+            <span
+                class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-md font-bold">
                  <span class="">{{ \App\Models\Category::find($key)->title }}</span>
             </span>
 
@@ -33,7 +34,6 @@
                 </a>
             @endforeach
         @endforeach
-
     </nav>
 
     <nav class="space-y-1 mt-6">
