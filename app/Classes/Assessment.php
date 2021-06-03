@@ -55,11 +55,22 @@ class Assessment
         $this->topics[$service->uuid] = array_values($topics);
     }
 
+    public function getCompleted()
+    {
+        try
+        {
+            return $this->topics ? array_keys($this->topics) : [];
+        }
+        catch (\Exception $exception)
+        {
+            return [];
+        }
+    }
+
     public function getTopics(Service $service): ?Collection
     {
         try {
             $options = $this->topics[$service->uuid];
-
 
             $collection = collect($options)->map(function ($option) {
                 try {
@@ -67,6 +78,7 @@ class Assessment
                     return (object)[
                         'uuid' => $model->uuid,
                         'model' => $model,
+                        'answer' => $option['value'] ? 'Yes' : 'No',
                         'extended' => $option['value'] === $model->expected_value
                     ];
                 } catch (\Exception $exception) {

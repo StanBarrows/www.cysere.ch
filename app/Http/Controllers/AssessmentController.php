@@ -27,6 +27,7 @@ class AssessmentController extends Controller
         $next = $assessment->getNextService();
         $previous = $assessment->getPreviousService();
         $topics = $assessment->getTopics($active);
+        $completed = $assessment->getCompleted();
 
         return view('assessment.index')->with([
             'services' => $services,
@@ -34,14 +35,10 @@ class AssessmentController extends Controller
             'previous' => $previous,
             'next' => $next,
             'topics' => $topics,
+            'completed' => $completed,
         ]);
     }
 
-    public function reset()
-    {
-        session()->flush();
-        return redirect()->route('start.index');
-    }
 
     public function set(Service $service)
     {
@@ -56,8 +53,7 @@ class AssessmentController extends Controller
         $assessment = session()->get(Assessment::SESSION);
         $active = $assessment->getActiveService();
 
-        $topics = collect($request->except('_token'))->map(function ($value, $key)
-        {
+        $topics = collect($request->except('_token'))->map(function ($value, $key) {
             return [
                 'uuid' => $key,
                 'value' => $value,
@@ -70,9 +66,16 @@ class AssessmentController extends Controller
         return redirect()->route('assessment.index');
     }
 
+    public function reset()
+    {
+        session()->flush();
+        return redirect()->route('start.index');
+    }
+
     public function finish()
     {
-        return redirect()->route('assessment.finish');
+        session()->flush();
+        return view('assessment.finish');
     }
 
 }

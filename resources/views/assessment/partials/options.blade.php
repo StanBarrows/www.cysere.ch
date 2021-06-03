@@ -3,9 +3,9 @@
 
     @foreach($active->topics as $topic)
         <section aria-labelledby="">
-            <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-white py-6 px-4 sm:p-6">
-                    <div>
+                    <div class="mb-4">
                         <h2 id="payment_details_heading"
                             class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->title }}
@@ -38,9 +38,8 @@
                                     <div class="ml-3 flex flex-col">
                                         <!-- Checked: "text-gray-900", Not Checked: "text-gray-900" -->
                                         <span id="privacy-setting-0-label"
-                                              class="text-gray-900 block text-sm font-medium">
-                                                            Yes
-                                                        </span>
+                                              class="text-gray-900 block text-sm font-medium">Yes
+                                        </span>
 
                                     </div>
                                 </label>
@@ -73,7 +72,7 @@
         </section>
     @endforeach
 
-    <div class="flex justify-end">
+    <div class="mt-6 flex justify-end">
         <button type="submit"
                 class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
             Check

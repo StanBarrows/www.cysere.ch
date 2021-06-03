@@ -17,8 +17,8 @@ Route::post('checklist/store')->uses([CheklistController::class, 'store'])->name
 Route::get('assessment/index')->uses([AssessmentController::class, 'index'])->name('assessment.index');
 Route::post('assessment/check')->uses([AssessmentController::class, 'check'])->name('assessment.check');
 
-Route::post('assessment/reset')->uses([AssessmentController::class, 'reset'])->name('assessment.reset');
-Route::post('assessment/finish')->uses([AssessmentController::class, 'finish'])->name('assessment.finish');
+Route::get('assessment/reset')->uses([AssessmentController::class, 'reset'])->name('assessment.reset');
+Route::get('assessment/finish')->uses([AssessmentController::class, 'finish'])->name('assessment.finish');
 
 Route::get('assessment/set/{service}')->uses([AssessmentController::class, 'set'])->name('assessment.set');
 
