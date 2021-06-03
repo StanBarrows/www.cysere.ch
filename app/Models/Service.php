@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\IsPublishable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
     use HasFactory;
+    use IsPublishable;
     use SoftDeletes;
 
     protected $casts = [
@@ -17,10 +19,9 @@ class Service extends Model
         'published_at' => 'datetime',
     ];
 
-
     public function getRouteKeyName()
     {
-        return 'slug';
+        return 'uuid';
     }
 
     public function category()
@@ -28,5 +29,9 @@ class Service extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 
 }

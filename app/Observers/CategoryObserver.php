@@ -16,6 +16,5 @@ class CategoryObserver
     public function creating(Category $category)
     {
         $category->uuid = Str::orderedUuid()->toString();
-        $category->slug = Str::slug($category->title);
     }
 }

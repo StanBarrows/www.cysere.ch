@@ -8,8 +8,8 @@ class StartIndexController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('title')->with('services')->get();
-       return view('start', compact('categories'));
+        $categories = Category::where('published', true)->orderBy('title')->with('services')->get();
+        return view('start', compact('categories'));
     }
 
 }

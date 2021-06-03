@@ -16,13 +16,11 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
+            $table->boolean('published')->default(false);
+            $table->integer('order')->nullable();
             $table->foreignId('category_id');
             $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('description');
-            $table->longText('body');
-            $table->json('authors')->nullable();
-            $table->dateTime('published_at')->nullable();
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
         });
