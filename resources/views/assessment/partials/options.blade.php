@@ -4,7 +4,7 @@
     <form action="{{ route('assessment.check') }}" method="POST">
         @csrf
 
-        @foreach($active->topics as $topic)
+        @foreach($active->topics()->orderBy('order')->get() as $topic)
             <section aria-labelledby="">
                 <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 sm:p-6">

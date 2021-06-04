@@ -2,7 +2,7 @@
 
     @if($topic->extended)
         <section aria-labelledby="">
-            <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
+            <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden border-2 border-green-600">
                 <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
                         <h2 class="text-lg leading-6 font-medium text-gray-900">
@@ -19,16 +19,14 @@
         </section>
     @else
         <section aria-labelledby="">
-            <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
+            <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden border-2 border-red-600">
                 <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
                         <h2 class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->model->question }}
-
                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
                                    Your answer <span class="font-bold ml-1"> {{ $topic->answer }}</span>
                             </span>
-
                         </h2>
 
                         @if($topic->model->description)
