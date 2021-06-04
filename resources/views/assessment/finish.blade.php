@@ -16,15 +16,15 @@
                 <div class="md:ml-auto md:w-1/2 md:pl-10">
 
                     <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
-                        Project GEIGER
+                        Project Geiger
                     </p>
                     <p class="mt-3 text-lg text-gray-300">
-                        GEIGER is an innovation project that aims to develop a solution that allows small businesses and entrepreneurs to become aware of their risks related to data protection, privacy, and cybersecurity, and get help in reducing these risks.
+                        Geiger is an innovation project that aims to develop a solution that allows small businesses and entrepreneurs to become aware of their risks related to data protection, privacy, and cybersecurity, and get help in reducing these risks.
                     </p>
                     <div class="mt-8">
                         <div class="inline-flex rounded-md shadow">
                             <a target="_blank" href="https://project.cyber-geiger.eu/index.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
-                                 Take me to GEIGER   <i class="fad fa-external-link ml-2"></i>
+                                 Take me to Geiger   <i class="fad fa-external-link ml-2"></i>
                             </a>
                         </div>
                     </div>

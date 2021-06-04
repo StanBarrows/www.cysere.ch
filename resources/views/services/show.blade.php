@@ -1,56 +1,37 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="my-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative py-16 overflow-hidden">
 
-                <div class="relative px-4 sm:px-6 lg:px-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    <div class="text-lg max-w-prose mx-auto max-w-screen-2xl">
+        <x-header :title="$service->title" :description="$service->description" :navigation="$service->title"></x-header>
 
-                                   <span class="mb-6 relative z-0 inline-flex shadow-sm rounded-md">
-                              <a href="{{route('start.index')}}"
-                                 class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
-                                <span class="sr-only">Previous</span>
-                                  <!-- Heroicon name: solid/chevron-left -->
-                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                     fill="currentColor" aria-hidden="true">
-                                  <path fill-rule="evenodd"
-                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"/>
-                                </svg> <span class="mr-2">Back</span>
-                              </a>
-                        </span>
+        @foreach($service->topics as $topic)
+            <section>
 
+                <div class="mt-12 mb-2">
+                    <h2 class="text-lg leading-6 font-medium text-gray-900">
+                        {{ $topic->title }}
+                    </h2>
 
-                        <h1>
-                            <a href="{{ route('start.index') }}"
-                               class="block text-base text-center text-gray-600 font-semibold tracking-wide uppercase">{{ $category }}</a>
-                            <span
-                                class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ $title }}</span>
-                        </h1>
-                        <p class="mt-8 text-xl text-gray-500 leading-8">{{ $description }}</p>
-                    </div>
-                    <div class="mt-6 prose prose-gray prose-lg text-gray-500 mx-auto max-w-screen-2xl">
-                        {!! $body !!}
+                    @if($topic->description)
+                        <p class="mt-1 text-sm text-gray-500">
+                            {{ $topic->description }}
+                        </p>
+                    @endif
+                </div>
 
-                        <span class="mt-6 relative z-0 inline-flex shadow-sm rounded-md">
-                              <a href="{{route('start.index')}}"
-                                 class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
-                                <span class="sr-only">Previous</span>
-                                  <!-- Heroicon name: solid/chevron-left -->
-                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                     fill="currentColor" aria-hidden="true">
-                                  <path fill-rule="evenodd"
-                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"/>
-                                </svg> <span class="mr-2">Back</span>
-                              </a>
-                        </span>
+                <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
+                    <div class="bg-white py-6 px-4 sm:p-6">
+
+                        <div class="mt-6">
+                            <div class="prose prose-base max-w-7xl">
+                                {!! $topic->body !!}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
+        @endforeach
+    </main>
 @stop

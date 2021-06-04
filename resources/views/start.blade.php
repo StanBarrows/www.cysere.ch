@@ -54,7 +54,8 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img title="Source: pexels.com" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
+            <img title="Source: pexels.com" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+                 src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
         </div>
     </div>
 
@@ -74,27 +75,44 @@
                 <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
 
                     @foreach($category->services()->orderBy('order')->get() as $service)
-                        <div class="relative">
-                            <dt>
-                                <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
-                                    @if($service->published)
-                                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        {{ __('application/checklist.online') }}
-                                    </span>
-                                    @else
-                                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                        {{ __('application/checklist.coming_soon') }}
+                        @if($service->published)
+                            <div class="relative">
+                                <dt>
+                                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
+                                        <span
+                                            class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            {{ __('application/checklist.online') }}
                                         </span>
-                                    @endif
-                                </p>
+                                    </p>
 
-                            </dt>
-                            <dd class="mt-2 ml-9 text-base text-gray-500">
-                                {{ $service->description }}
-                            </dd>
-                        </div>
+                                </dt>
+                                <dd class="mt-2 ml-9 text-base text-gray-500">
+                                    {{ $service->description }}
+                                </dd>
+                                <dd class="mt-3 ml-9 text-base text-gray-500">
+                                    <a rel="nofollow" href="{{ route('services.show', $service) }}"
+                                       class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-800">
+                                        {{ __('application/start.topics.more') }}
+                                    </a>
+                                </dd>
+                            </div>
+
+                        @else
+                            <div class="relative">
+                                <dt>
+                                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
+                                        <span
+                                            class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            {{ __('application/checklist.coming_soon') }}
+                                        </span>
+                                    </p>
+                                </dt>
+                                <dd class="mt-2 ml-9 text-base text-gray-500">
+                                    {{ $service->description }}
+                                </dd>
+                            </div>
+                        @endif
                     @endforeach
-
                 </dl>
             </div>
         </div>
