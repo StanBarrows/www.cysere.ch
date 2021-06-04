@@ -68,7 +68,7 @@ class Topic extends Resource
 
             Text::make('Title')
                 ->sortable()
-                ->rules('required', 'string', 'max:60'),
+                ->rules('required', 'string', 'max:80'),
 
             Text::make('Question')
                 ->sortable()
@@ -77,8 +77,7 @@ class Topic extends Resource
             Textarea::make('Description')
                 ->sortable()
                 ->alwaysShow()
-                ->rules('required', 'string', 'max:255'),
-
+                ->rules('nullable', 'string', 'max:255'),
 
             Trix::make('Body')
                 ->sortable()
