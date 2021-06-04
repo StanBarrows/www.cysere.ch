@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->boolean('published')->default(false);
             $table->integer('order')->nullable();
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

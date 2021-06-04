@@ -11,7 +11,7 @@
                         <div class="mb-4">
                             <h2 id="payment_details_heading"
                                 class="text-lg leading-6 font-medium text-gray-900">
-                                {{ $topic->title }}
+                                {{ $topic->question }}
                             </h2>
 
                             @if($topic->description)
@@ -24,7 +24,7 @@
                         <div class="">
                             <fieldset>
                                 <legend class="sr-only">
-                                    {{ $topic->title }}
+                                    {{ $topic->question }}
                                 </legend>
                                 <div class="bg-white rounded-md -space-y-px">
                                     <!-- Checked: "bg-gray-50 border-gray-200 z-10", Not Checked: "border-gray-200" -->
@@ -59,11 +59,9 @@
                                             aria-labelledby="privacy-setting-1-label"
                                             aria-describedby="privacy-setting-1-description">
                                         <div class="ml-3 flex flex-col">
-
-                                                    <span id="privacy-setting-1-label"
-                                                          class="text-gray-900 block text-sm font-medium">
-                                                        No
-                                                    </span>
+                                            <span id="privacy-setting-1-label" class="text-gray-900 block text-sm font-medium">
+                                                No
+                                            </span>
 
                                         </div>
                                     </label>

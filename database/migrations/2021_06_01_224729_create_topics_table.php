@@ -20,6 +20,7 @@ class CreateTopicsTable extends Migration
             $table->integer('order')->nullable();
             $table->foreignId('service_id');
             $table->string('title');
+            $table->string('question');
             $table->longText('description')->nullable();
             $table->longText('body');
             $table->string('value')->nullable();

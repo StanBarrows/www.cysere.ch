@@ -7,6 +7,7 @@ return [
     'button' => 'Get started now',
 
     'topics' => [
-        'title' => 'Covered topics'
+        'title' => 'Covered topics',
+        'more' => 'Checkout the GDPR Requirements'
     ],
 ];

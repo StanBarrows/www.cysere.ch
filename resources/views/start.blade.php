@@ -16,7 +16,7 @@
                              aria-label="Global">
                             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                                 <div class="flex items-center justify-between w-full md:w-auto">
-                                    <a href="{{ route('start.index') }}">
+                                    <a rel="nofollow" href="{{ route('start.index') }}">
                                         <span
                                             class="h-8 w-auto sm:h-10 font-bold text-xl">Cyber Security and Resilience</span>
                                     </a>
@@ -43,7 +43,7 @@
 
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="{{ route('checklist.index') }}"
+                                <a rel="nofollow" href="{{ route('checklist.index') }}"
                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg md:px-10">
                                     {{ __('application/start.button') }}
                                 </a>
@@ -54,7 +54,8 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
+            <img title="Source: pexels.com" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+                 src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
         </div>
     </div>
 
@@ -67,34 +68,55 @@
                     <h2 class="text-3xl font-extrabold text-gray-900">
                         {{ $category->title }}
                     </h2>
-                    <p class="mt-4 text-lg text-gray-500">
-                        {{ $category->description  }}
-                    </p>
+
+                    @if($category->description)
+                        <p class="mt-4 text-lg text-gray-500">
+                            {{ $category->description  }}
+                        </p>
+                    @endif
+
                 </div>
                 <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
 
                     @foreach($category->services()->orderBy('order')->get() as $service)
-                        <div class="relative">
-                            <dt>
-                                <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
-                                    @if($service->published)
-                                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        {{ __('application/checklist.online') }}
-                                    </span>
-                                    @else
-                                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                        {{ __('application/checklist.coming_soon') }}
+                        @if($service->published)
+                            <div class="relative">
+                                <dt>
+                                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
+                                        <span
+                                            class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            {{ __('application/checklist.online') }}
                                         </span>
-                                    @endif
-                                </p>
+                                    </p>
 
-                            </dt>
-                            <dd class="mt-2 ml-9 text-base text-gray-500">
-                                {{ $service->description }}
-                            </dd>
-                        </div>
+                                </dt>
+                                <dd class="mt-2 ml-9 text-base text-gray-500">
+                                    {{ $service->description }}
+                                </dd>
+                                <dd class="mt-3 ml-9 text-base text-gray-500">
+                                    <a rel="nofollow" href="{{ route('services.show', $service) }}"
+                                       class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-800">
+                                        {{ __('application/start.topics.more') }}
+                                    </a>
+                                </dd>
+                            </div>
+
+                        @else
+                            <div class="relative">
+                                <dt>
+                                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ $service->title }}
+                                        <span
+                                            class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            {{ __('application/checklist.coming_soon') }}
+                                        </span>
+                                    </p>
+                                </dt>
+                                <dd class="mt-2 ml-9 text-base text-gray-500">
+                                    {{ $service->description }}
+                                </dd>
+                            </div>
+                        @endif
                     @endforeach
-
                 </dl>
             </div>
         </div>

@@ -5,18 +5,15 @@
             <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
-                        <h2 id="" class="text-lg leading-6 font-medium text-gray-900">
-                            {{ $topic->model->title }}
-
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">
+                            {{ $topic->model->question }}
 
                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
                                    Your answer <span class="font-bold ml-1"> {{ $topic->answer }}</span>
                             </span>
-
                         </h2>
 
                     </div>
-
                 </div>
             </div>
         </section>
@@ -25,9 +22,8 @@
             <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
-                        <h2 id=""
-                            class="text-lg leading-6 font-medium text-gray-900">
-                            {{ $topic->model->title }}
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">
+                            {{ $topic->model->question }}
 
                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
                                    Your answer <span class="font-bold ml-1"> {{ $topic->answer }}</span>
@@ -35,9 +31,9 @@
 
                         </h2>
 
-                        @if($topic->model->explanation)
+                        @if($topic->model->description)
                             <p class="mt-1 text-sm text-gray-500">
-                                {{ $topic->model->explanation }}
+                                {{ $topic->model->description }}
                             </p>
                         @endif
                     </div>
@@ -79,7 +75,5 @@
            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
             Finish Survey
         </a>
-
     @endif
-
 </div>

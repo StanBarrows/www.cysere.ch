@@ -24,3 +24,4 @@ Route::get('assessment/finish')->uses([AssessmentController::class, 'finish'])->
 Route::get('assessment/set/{service}')->uses([AssessmentController::class, 'set'])->name('assessment.set');
 
 Route::get('/team')->uses([TeamControllerTest::class, 'index'])->name('team.index');
+

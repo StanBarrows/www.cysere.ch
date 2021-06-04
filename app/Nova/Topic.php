@@ -33,7 +33,7 @@ class Topic extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description','body'
+        'id', 'title', 'question','description','body'
     ];
 
 
@@ -69,6 +69,10 @@ class Topic extends Resource
             Text::make('Title')
                 ->sortable()
                 ->rules('required', 'string', 'max:60'),
+
+            Text::make('Question')
+                ->sortable()
+                ->rules('required', 'string', 'max:120'),
 
             Textarea::make('Description')
                 ->sortable()

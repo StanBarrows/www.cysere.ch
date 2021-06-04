@@ -3,8 +3,12 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Nova\Metrics\Categories;
+use App\Nova\Metrics\Services;
+use App\Nova\Metrics\Topics;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Element;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -54,7 +58,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            new Categories(),
+            new Services(),
+            new Topics(),
         ];
     }
 
@@ -65,7 +71,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards()
     {
-        return [];
+        return [
+
+        ];
     }
 
     /**
