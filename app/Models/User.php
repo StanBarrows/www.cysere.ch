@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\IsPublishable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory;
+    use IsPublishable;
     use Notifiable;
 
     /**
@@ -40,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getGravatar()
+    {
+        return 'https://gravatar.com/avatar/' . md5($this->email );
+    }
 }

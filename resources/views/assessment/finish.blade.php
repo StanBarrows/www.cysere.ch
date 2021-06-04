@@ -23,7 +23,7 @@
                     </p>
                     <div class="mt-8">
                         <div class="inline-flex rounded-md shadow">
-                            <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                            <a target="_blank" href="https://project.cyber-geiger.eu/index.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
                                  Take me to GEIGER   <i class="fad fa-external-link ml-2"></i>
                             </a>
                         </div>
