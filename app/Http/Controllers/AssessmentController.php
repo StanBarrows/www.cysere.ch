@@ -70,13 +70,13 @@ class AssessmentController extends Controller
 
     public function reset()
     {
-        session()->flush();
-        return redirect()->route('start.index');
+        session()->forget(Assessment::SESSION);
+        return redirect()->route('checklist.index');
     }
 
     public function finish()
     {
-        session()->flush();
+        session()->forget(Assessment::SESSION);
         return view('assessment.finish');
     }
 

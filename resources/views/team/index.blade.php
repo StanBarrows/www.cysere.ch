@@ -4,7 +4,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <x-header title="Team" description="Lorem Ipsum" navigation="Team"></x-header>
+        <x-header title="{{ __('application/team.title') }}" description="{{ __('application/team.subtitle') }}" navigation="{{ __('application/team.title') }}"></x-header>
 
         <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
 
