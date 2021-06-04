@@ -14,7 +14,7 @@ class CheklistController extends Controller
             return redirect()->route('assessment.index');
         }
 
-        $categories = Category::published()->orderBy('order')->get();
+        $categories = Category::orderBy('order')->with('services')->get();
 
         return view('checklist.index')->with(['categories' => $categories]);
     }
@@ -23,9 +23,8 @@ class CheklistController extends Controller
     {
         $keys = array_keys($request->except('_token'));
 
-        if(!count($keys))
-        {
-            flash('Please select at least one service.');
+        if (!count($keys)) {
+            flash(__('application/checklist.empty_selection'));
             return redirect()->back();
         }
 

@@ -2,6 +2,9 @@
 
 return [
 
+    'banner' => 'We do not store or making use of cookies. We only eat them!',
+
+
     'navigation' => [
 
     ],

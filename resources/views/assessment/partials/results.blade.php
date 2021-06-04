@@ -3,18 +3,17 @@
     @if($topic->extended)
         <section aria-labelledby="">
             <div class="mb-6 shadow sm:rounded-md sm:overflow-hidden">
-                <div class="bg-green-50 py-6 px-4 sm:p-6">
+                <div class="bg-white py-6 px-4 sm:p-6">
                     <div>
-                        <h2 id=""
-                            class="text-lg leading-6 font-medium text-gray-900">
+                        <h2 id="" class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->model->title }}
-                        </h2>
 
-                        @if($topic->model->description)
-                            <p class="mt-1 text-sm text-gray-500">
-                                {{ $topic->model->description }}
-                            </p>
-                        @endif
+
+                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                   Your answer <span class="font-bold ml-1"> {{ $topic->answer }}</span>
+                            </span>
+
+                        </h2>
 
                     </div>
 
@@ -29,6 +28,11 @@
                         <h2 id=""
                             class="text-lg leading-6 font-medium text-gray-900">
                             {{ $topic->model->title }}
+
+                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                   Your answer <span class="font-bold ml-1"> {{ $topic->answer }}</span>
+                            </span>
+
                         </h2>
 
                         @if($topic->model->explanation)
