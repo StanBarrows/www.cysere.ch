@@ -4,32 +4,36 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <x-header title="Finish"
-                  description="Sugar plum icing chupa chups tootsie roll donut. Caramels pie ice cream pastry sweet. Cookie jelly beans marshmallow chocolate powder soufflé."
-                  navigation="Finish"></x-header>
+        <x-header title="{{ __('application/finish.title') }}" description="{{ __('application/finish.subtitle') }}" navigation="{{ __('application/finish.title') }}"></x-header>
 
-        <div class="">
 
-            <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="bg-gray-200">
-                <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
-                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
-                        <span class="block">Ready to dive in?</span>
-                        <span class="block text-gray-600">Start your free trial today.</span>
-                    </h2>
-                    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div class="relative bg-gray-800">
+            <div class="h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+                <img class="w-full h-full object-cover" src="https://project.cyber-geiger.eu/images/index/GEIGER_ecosystem.png" alt="Project GEIGER">
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+                <div class="md:ml-auto md:w-1/2 md:pl-10">
+
+                    <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
+                        Project GEIGER
+                    </p>
+                    <p class="mt-3 text-lg text-gray-300">
+                        GEIGER is an innovation project that aims to develop a solution that allows small businesses and entrepreneurs to become aware of their risks related to data protection, privacy, and cybersecurity, and get help in reducing these risks.
+                    </p>
+                    <div class="mt-8">
                         <div class="inline-flex rounded-md shadow">
-                            <a href="{{ route('start.index') }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
-                                Get started
+                            <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                                 Take me to GEIGER   <i class="fad fa-external-link ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+
+
+
     </main>
 
 @stop

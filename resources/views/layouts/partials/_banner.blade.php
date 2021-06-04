@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="pr-16 sm:text-center sm:px-16">
             <p class="font-medium text-white text-center">
-                Big news! We're excited to announce a brand new product. Lorem Ipsum!
+                <i class="fad fa-cookie-bite"></i>  {{ __('application/layouts.banner') }}
             </p>
         </div>
         {{--<div class="absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start">
