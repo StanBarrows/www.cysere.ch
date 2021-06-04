@@ -16,7 +16,7 @@
                              aria-label="Global">
                             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                                 <div class="flex items-center justify-between w-full md:w-auto">
-                                    <a href="{{ route('start.index') }}">
+                                    <a rel="nofollow" href="{{ route('start.index') }}">
                                         <span
                                             class="h-8 w-auto sm:h-10 font-bold text-xl">Cyber Security and Resilience</span>
                                     </a>
@@ -43,7 +43,7 @@
 
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="{{ route('checklist.index') }}"
+                                <a rel="nofollow" href="{{ route('checklist.index') }}"
                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg md:px-10">
                                     {{ __('application/start.button') }}
                                 </a>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
+            <img title="Source: pexels.com" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/background.jpg') }}" alt="{{ config('app.name') }}">
         </div>
     </div>
 

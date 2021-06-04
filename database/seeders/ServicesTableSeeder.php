@@ -69,7 +69,7 @@ class ServicesTableSeeder extends Seeder
         ]);
 
         $service = Service::create([
-            'published' => true,
+            'published' => false,
             'category_id' => 3,
             'order' => 2,
             'title' => 'Newsletter Sign-Up',

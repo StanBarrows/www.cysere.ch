@@ -8,7 +8,7 @@
     @include('layouts.partials._seo', ['seo' => seo()])
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/24d14dff7f.js" crossorigin="anonymous"></script>
+    <script src="{{ config('cysere.fontawesome_url') }}" crossorigin="anonymous"></script>
 
     @livewireStyles
 
@@ -18,13 +18,10 @@
 @yield('content')
 @include('layouts.partials._footer')
 
-
 <script src="{{ mix('js/app.js')}}"></script>
 
 @if(app()->isProduction())
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://dragonfly.codebar.ch/script.js" data-site="WLUVVPIV" defer></script>
-    <!-- / Fathom -->
+    <script src="{{ config('cysere.fathom_url') }}" data-site="{{ config('cysere.fathom_id') }}" defer></script>
 @endif
 @livewireScripts
 </body>

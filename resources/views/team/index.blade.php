@@ -21,21 +21,30 @@
                                     <h3>{{ $user->name }} </h3>
                                 </div>
                                 <ul class="flex justify-center space-x-5">
+
+                                    @if($user->email)
+                                        <li>
+                                            <a rel="nofollow" target="_blank" href="mailto:{{ $user->email }}"
+                                               class="text-gray-400 hover:text-gray-500">
+                                                <span class="sr-only">E-Mail</span>
+                                                <i class="fad fa-envelope fa-lg w-5 h-5"></i>
+
+                                            </a>
+                                        </li>
+                                    @endif
                                     @if($user->linked_in)
                                         <li>
-                                            <a target="_blank" href="{{ $user->linked_in }}"
+                                            <a rel="nofollow" target="_blank" href="{{ $user->linked_in }}"
                                                class="text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">LinkedIn</span>
-
                                                 <i class="fab fa-linkedin fa-lg w-5 h-5"></i>
-
                                             </a>
                                         </li>
                                     @endif
 
                                     @if($user->twitter)
                                         <li>
-                                            <a target="_blank" href="{{ $user->twitter }}"
+                                            <a rel="nofollow" target="_blank" href="{{ $user->twitter }}"
                                                class="text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">Twitter</span>
                                                 <i class="fab fa-twitter fa-lg w-5 h-5"></i>
@@ -45,12 +54,11 @@
 
                                     @if($user->github)
                                         <li>
-                                            <a target="_blank" href="{{ $user->github }}"
+                                            <a rel="nofollow" target="_blank" href="{{ $user->github }}"
                                                class="text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">Github</span>
                                                 <i class="fab fa-github fa-lg w-5 h-5"></i>
                                             </a>
-
                                         </li>
                                     @endif
                                 </ul>
