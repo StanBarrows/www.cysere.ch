@@ -68,9 +68,13 @@
                     <h2 class="text-3xl font-extrabold text-gray-900">
                         {{ $category->title }}
                     </h2>
-                    <p class="mt-4 text-lg text-gray-500">
-                        {{ $category->description  }}
-                    </p>
+
+                    @if($category->description)
+                        <p class="mt-4 text-lg text-gray-500">
+                            {{ $category->description  }}
+                        </p>
+                    @endif
+
                 </div>
                 <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
 
