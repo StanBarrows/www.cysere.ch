@@ -6,6 +6,7 @@ use App\Http\Controllers\StartIndexController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\CheklistController;
+use App\Http\Controllers\TeamControllerTest;
 
 Route::get('/')->uses([StartIndexController::class, 'index'])->name('start.index');
 
@@ -22,3 +23,4 @@ Route::get('assessment/finish')->uses([AssessmentController::class, 'finish'])->
 
 Route::get('assessment/set/{service}')->uses([AssessmentController::class, 'set'])->name('assessment.set');
 
+Route::get('/team')->uses([TeamControllerTest::class, 'index'])->name('team.index');
